@@ -259,6 +259,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/leetcode-79/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yschen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YSCHEN's space">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/29/leetcode-79/" itemprop="url"><79> Word Search</79></a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-01-29T16:56:27+08:00">
+                2020-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcodes/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcodes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/29/leetcode-79/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/29/leetcode-79/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
+<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/word-search/" title="Word Search" target="_blank" rel="noopener">79. Word Search</a></p>
+<p><strong>Quick Sum-up:</strong></p>
+<ul>
+<li>Input: a 2D array and a string</li>
+<li>Output: a boolean value indicating whether the string can be assembled by the characters in the array</li>
+</ul>
+<hr>
+<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>For each cell in the array, if the character is the same as the first character of the string, check whether its neighbors contain the following character. Use a 2D array to record whether a cell has been visited. The recursive loop stops when the end of string is reached. =&gt; Pass, 76ms</p>
+<hr>
+<h3 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h3><table>
+<thead>
+<tr>
+<th align="left">Input1</th>
+<th align="left">Input2</th>
+<th align="left">Expected Output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">board=[<br>[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],<br>[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],<br>[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]<br>]</td>
+<td align="left">word=&quot;ABCCED&quot;</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">word=&quot;SEE&quot;</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">word=&quot;ABCB&quot;</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">board=[]</td>
+<td align="left">word=&quot;&quot;</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">board=[[&quot;&quot;]]</td>
+<td align="left">word=&quot;&quot;</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">board=[[]]</td>
+<td align="left">word=&quot;ABC&quot;</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">board=[[&quot;A&quot;]]</td>
+<td align="left">word=&quot;ABC&quot;</td>
+<td align="left">fasle</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;character[][]&#125; board</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; word</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> exist = <span class="function"><span class="keyword">function</span>(<span class="params">board, word</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> height = board.length</span><br><span class="line">    <span class="keyword">if</span> (height == <span class="number">0</span> || word.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> width = board[<span class="number">0</span>].length</span><br><span class="line">    <span class="keyword">let</span> record = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; height; j++) &#123;</span><br><span class="line">        <span class="keyword">let</span> row = []</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; width; i++)</span><br><span class="line">            row.push(<span class="literal">false</span>)</span><br><span class="line">        </span><br><span class="line">        record.push(row)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> search = <span class="function"><span class="keyword">function</span>(<span class="params">x, y, index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= width || y &lt; <span class="number">0</span> || y &gt;= height ||</span><br><span class="line">            record[y][x] || board[y][x] != word[index])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (index == word.length - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        record[y][x] = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (search(x + <span class="number">1</span>, y, index + <span class="number">1</span>) ||</span><br><span class="line">           search(x - <span class="number">1</span>, y , index + <span class="number">1</span>) ||</span><br><span class="line">           search(x, y + <span class="number">1</span>, index + <span class="number">1</span>) ||</span><br><span class="line">           search(x, y - <span class="number">1</span>, index + <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        record[y][x] = <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; height; j++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; width; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (board[j][i] == word[<span class="number">0</span>] &amp;&amp; search(i, j, <span class="number">0</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/26/leetcode-139/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -362,9 +568,9 @@
       
         
           
-            <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong><br>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</p>
-<p><strong>Note:</strong><br>The same word in the dictionary may be reused multiple times in the segmentation.<br>You may assume the dictionary does not contain duplicate words.</p>
-<p><strong>Leetcode link:</strong><br><a href="https://leetcode.com/problems/word-break/" title="Word Break" target="_blank" rel="noopener">136. Word Break</a></p>
+            <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</p>
+<p><strong>Note:</strong> The same word in the dictionary may be reused multiple times in the segmentation.<br>You may assume the dictionary does not contain duplicate words.</p>
+<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/word-break/" title="Word Break" target="_blank" rel="noopener">139. Word Break</a></p>
 <p><strong>Quick Sum-up:</strong></p>
 <ul>
 <li>Input: a string and an array of words</li>
@@ -386,19 +592,19 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">s=”leetcode”<br>wordDict=[“leet”, “code”]</td>
+<td align="left">s=&quot;leetcode&quot;<br>wordDict=[&quot;leet&quot;, &quot;code&quot;]</td>
 <td align="left">true</td>
 </tr>
 <tr>
-<td align="left">s=”applepenapple”<br>wordDict=[“apple”, “pen”]</td>
+<td align="left">s=&quot;applepenapple&quot;<br>wordDict=[&quot;apple&quot;, &quot;pen&quot;]</td>
 <td align="left">true</td>
 </tr>
 <tr>
-<td align="left">s=”catsandog”<br>wordDict=[“cats”, “dog”, “sand”, “and”, “cat”]</td>
+<td align="left">s=&quot;catsandog&quot;<br>wordDict=[&quot;cats&quot;, &quot;dog&quot;, &quot;sand&quot;, &quot;and&quot;, &quot;cat&quot;]</td>
 <td align="left">false</td>
 </tr>
 <tr>
-<td align="left">s=”aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaab”<br>wordDict=[“a”,”aa”,”aaa”,”aaaa”,”aaaaa”,”aaaaaa”,”aaaaaaa”,”aaaaaaaa”,”aaaaaaaaa”,”aaaaaaaaaa”]</td>
+<td align="left">s=&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaab&quot;<br>wordDict=[&quot;a&quot;,&quot;aa&quot;,&quot;aaa&quot;,&quot;aaaa&quot;,&quot;aaaaa&quot;,<br>&quot;aaaaaa&quot;,&quot;aaaaaaa&quot;,&quot;aaaaaaaa&quot;,&quot;aaaaaaaaa&quot;,<br>&quot;aaaaaaaaaa&quot;]</td>
 <td align="left">false</td>
 </tr>
 </tbody></table>
@@ -484,7 +690,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -506,7 +712,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">標籤</span>
                 
               </div>
