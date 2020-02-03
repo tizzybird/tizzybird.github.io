@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode,dp,">
+  <meta name="keywords" content="dp,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="DescriptionQuestion: Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionar">
-<meta name="keywords" content="leetcode,dp">
+<meta name="description" content="DescriptionQuestion: Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Leetcode link: 221. Maximal Square Quick Sum-up:  Input: a 2D ar">
+<meta name="keywords" content="dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;139&gt; Word Break">
-<meta property="og:url" content="http://yoursite.com/2020/01/26/leetcode-139/index.html">
+<meta property="og:title" content="&lt;221&gt; Maximal Square">
+<meta property="og:url" content="http://yoursite.com/2020/02/03/leetcode-221/index.html">
 <meta property="og:site_name" content="YSCHEN&#39;s space">
-<meta property="og:description" content="DescriptionQuestion: Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionar">
+<meta property="og:description" content="DescriptionQuestion: Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Leetcode link: 221. Maximal Square Quick Sum-up:  Input: a 2D ar">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-01-29T09:21:23.289Z">
+<meta property="og:updated_time" content="2020-02-03T15:37:46.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&lt;139&gt; Word Break">
-<meta name="twitter:description" content="DescriptionQuestion: Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionar">
+<meta name="twitter:title" content="&lt;221&gt; Maximal Square">
+<meta name="twitter:description" content="DescriptionQuestion: Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Leetcode link: 221. Maximal Square Quick Sum-up:  Input: a 2D ar">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/26/leetcode-139/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/03/leetcode-221/">
 
 
 
 
 
-  <title><139> Word Break | YSCHEN's space</139></title>
+  <title><221> Maximal Square | YSCHEN's space</221></title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/26/leetcode-139/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/leetcode-221/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yschen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"><139> Word Break</139></h1>
+          <h1 class="post-title" itemprop="name headline"><221> Maximal Square</221></h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-01-26T00:30:10-05:00">
-                2020-01-26
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-02-03T09:30:28-05:00">
+                2020-02-03
               </time>
             
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/26/leetcode-139/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/26/leetcode-139/" itemprop="commentCount"></span>
+                <a href="/2020/02/03/leetcode-221/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/03/leetcode-221/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,48 +362,46 @@
       
 
       
-        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</p>
-<p><strong>Note:</strong> The same word in the dictionary may be reused multiple times in the segmentation.<br>You may assume the dictionary does not contain duplicate words.</p>
-<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/word-break/" title="Word Break" target="_blank" rel="noopener">139. Word Break</a></p>
+        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area.</p>
+<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/maximal-square/" title="Maximal Square" target="_blank" rel="noopener">221. Maximal Square</a></p>
 <p><strong>Quick Sum-up:</strong></p>
 <ul>
-<li>Input: a string and an array of words</li>
-<li>Output: a boolean value indicating whether the string can be assembled by the words</li>
-<li>The string is non-empty.</li>
-<li>The array is non-empty.</li>
+<li>Input: a 2D array</li>
+<li>Output: a number indicating the number of 1 in the largest square</li>
 </ul>
 <hr>
-<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ol>
-<li>Compare the string with words in the dictionary. If a word appears in the string, slice the string and put the substring to the next round of matching until the string is empty. =&gt; TLE, fail on the 4th case</li>
-<li>Use BFS, the queue of BFS stores the start index of next round. In addition, we need to record whether an index has been stored in the queue. =&gt; Pass, 68ms</li>
-</ol>
+<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>For each cell in the matrix, if its value is 1, try expanding a square from top left to down right until a 0 is encountered. A 2D array is used for recording the maximal length of the expanded square at each cell. The speed of expanding square can be increased by using the 2D array record, since the initial length used for expanding a square is the maximum of records of top cell and left cell minus 1. =&gt; Pass, 3ms</p>
 <hr>
 <h3 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h3><table>
 <thead>
 <tr>
 <th align="left">Input</th>
-<th align="left">Output</th>
+<th align="left">Expected Output</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">s=&quot;leetcode&quot;<br>wordDict=[&quot;leet&quot;, &quot;code&quot;]</td>
-<td align="left">true</td>
+<td align="left">board=[]</td>
+<td align="left">0</td>
 </tr>
 <tr>
-<td align="left">s=&quot;applepenapple&quot;<br>wordDict=[&quot;apple&quot;, &quot;pen&quot;]</td>
-<td align="left">true</td>
+<td align="left">board=[[]]</td>
+<td align="left">0</td>
 </tr>
 <tr>
-<td align="left">s=&quot;catsandog&quot;<br>wordDict=[&quot;cats&quot;, &quot;dog&quot;, &quot;sand&quot;, &quot;and&quot;, &quot;cat&quot;]</td>
-<td align="left">false</td>
+<td align="left">board=[[&quot;1&quot;]]</td>
+<td align="left">1</td>
 </tr>
 <tr>
-<td align="left">s=&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaab&quot;<br>wordDict=[&quot;a&quot;,&quot;aa&quot;,&quot;aaa&quot;,&quot;aaaa&quot;,&quot;aaaaa&quot;,<br>&quot;aaaaaa&quot;,&quot;aaaaaaa&quot;,&quot;aaaaaaaa&quot;,&quot;aaaaaaaaa&quot;,<br>&quot;aaaaaaaaaa&quot;]</td>
-<td align="left">false</td>
+<td align="left">board=[<br>[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],<br>[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]<br>]</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">board=[<br>[&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],<br>[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;]<br>]</td>
+<td align="left">9</td>
 </tr>
 </tbody></table>
 <hr>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @param &#123;string[]&#125; wordDict</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> wordBreak = <span class="function"><span class="keyword">function</span>(<span class="params">s, wordDict</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> startIndex = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> isSame = <span class="function"><span class="keyword">function</span>(<span class="params">startIndex, word</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (startIndex + word.length &gt; s.length)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; word.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (word[i] != s[startIndex + i])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> q = [<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">while</span>(q.length) &#123;</span><br><span class="line">        <span class="keyword">let</span> newQ = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (q.length) &#123;</span><br><span class="line">            <span class="keyword">let</span> startIndex = <span class="built_in">parseInt</span>(q.shift())</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (startIndex == s.length)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; wordDict.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (newQ[startIndex + wordDict[i].length] == <span class="literal">undefined</span> &amp;&amp;</span><br><span class="line">                    isSame(startIndex, wordDict[i]))</span><br><span class="line">                &#123;</span><br><span class="line">                    newQ[startIndex + wordDict[i].length] = <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        q = <span class="built_in">Object</span>.keys(newQ)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> height;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[][] record;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[][] mat;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">expandRegion</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> endX = x + size;</span><br><span class="line">        <span class="keyword">int</span> endY = y + size;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (endX &gt;= width || endY &gt;= height)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = y; j &lt;= endY; j++)</span><br><span class="line">                <span class="keyword">if</span> (mat[j][endX] == <span class="string">'0'</span>)</span><br><span class="line">                    <span class="keyword">return</span> size;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= endX; i++)</span><br><span class="line">                <span class="keyword">if</span> (mat[endY][i] == <span class="string">'0'</span>)</span><br><span class="line">                    <span class="keyword">return</span> size;</span><br><span class="line">                </span><br><span class="line">            size++;</span><br><span class="line">            endX++;</span><br><span class="line">            endY++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findSquare</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lastLen = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">0</span> &amp;&amp; y == <span class="number">0</span>) &#123;</span><br><span class="line">            lastLen = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">            lastLen = record[y-<span class="number">1</span>][x];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y == <span class="number">0</span>) &#123;</span><br><span class="line">            lastLen = record[y][x-<span class="number">1</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            lastLen = record[y-<span class="number">1</span>][x] &gt; record[y][x-<span class="number">1</span>] ? record[y-<span class="number">1</span>][x] : record[y][x-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        lastLen = lastLen &gt; <span class="number">1</span> ? lastLen - <span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">        record[y][x] = expandRegion(x, y, lastLen);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> record[y][x];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalSquare</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        height = matrix.length;</span><br><span class="line">        <span class="keyword">if</span> (height == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        width = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span> (width == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        mat = matrix;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// initialize record</span></span><br><span class="line">        record = <span class="keyword">new</span> <span class="keyword">int</span>[height][width];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; height; j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width; i++)</span><br><span class="line">                record[j][i] = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; height; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[j][i] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> squareLen = findSquare(i, j);</span><br><span class="line">                    <span class="keyword">if</span> (squareLen &gt; maxLen)</span><br><span class="line">                        maxLen = squareLen;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> maxLen * maxLen;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -420,8 +418,6 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-          
             <a href="/tags/dp/" rel="tag"># dp</a>
           
         </div>
@@ -435,15 +431,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2020/01/29/leetcode-79/" rel="next" title="<79> Word Search">
+                <i class="fa fa-chevron-left"></i> <79> Word Search
+              </79></a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/29/leetcode-79/" rel="prev" title="<79> Word Search">
-                <79> Word Search <i class="fa fa-chevron-right"></i>
-              </79></a>
             
           </div>
         </div>
@@ -767,9 +763,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2020/01/26/leetcode-139/';
-          this.page.identifier = '2020/01/26/leetcode-139/';
-          this.page.title = '<139> Word Break';
+          this.page.url = 'http://yoursite.com/2020/02/03/leetcode-221/';
+          this.page.identifier = '2020/02/03/leetcode-221/';
+          this.page.title = '<221> Maximal Square';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://yensungchen.disqus.com/embed.js';
