@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="DescriptionQuestion: Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Leetcode link: 221. Maximal Square Quick Sum-up:  Input: a 2D ar">
+<meta name="description" content="DescriptionQuestion: A sequence of number is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same. A zero-indexed array A">
 <meta name="keywords" content="dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;221&gt; Maximal Square">
-<meta property="og:url" content="http://yoursite.com/2020/02/03/leetcode-221/index.html">
+<meta property="og:title" content="&lt;413&gt; Arithmetic Slices">
+<meta property="og:url" content="http://yoursite.com/2020/02/18/leetcode-413/index.html">
 <meta property="og:site_name" content="YSCHEN&#39;s space">
-<meta property="og:description" content="DescriptionQuestion: Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Leetcode link: 221. Maximal Square Quick Sum-up:  Input: a 2D ar">
+<meta property="og:description" content="DescriptionQuestion: A sequence of number is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same. A zero-indexed array A">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-02-03T15:37:46.128Z">
+<meta property="og:updated_time" content="2020-02-18T23:28:15.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&lt;221&gt; Maximal Square">
-<meta name="twitter:description" content="DescriptionQuestion: Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Leetcode link: 221. Maximal Square Quick Sum-up:  Input: a 2D ar">
+<meta name="twitter:title" content="&lt;413&gt; Arithmetic Slices">
+<meta name="twitter:description" content="DescriptionQuestion: A sequence of number is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same. A zero-indexed array A">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/02/03/leetcode-221/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/18/leetcode-413/">
 
 
 
 
 
-  <title><221> Maximal Square | YSCHEN's space</221></title>
+  <title><413> Arithmetic Slices | YSCHEN's space</413></title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/leetcode-221/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/leetcode-413/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yschen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"><221> Maximal Square</221></h1>
+          <h1 class="post-title" itemprop="name headline"><413> Arithmetic Slices</413></h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-02-03T09:30:28-05:00">
-                2020-02-03
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-02-18T17:38:17-05:00">
+                2020-02-18
               </time>
             
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/02/03/leetcode-221/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/03/leetcode-221/" itemprop="commentCount"></span>
+                <a href="/2020/02/18/leetcode-413/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/18/leetcode-413/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,15 +362,18 @@
       
 
       
-        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area.</p>
-<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/maximal-square/" title="Maximal Square" target="_blank" rel="noopener">221. Maximal Square</a></p>
+        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> A sequence of number is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same.</p>
+<p>A zero-indexed array A consisting of N numbers is given. A slice of that array is any pair of integers (P, Q) such that 0 &lt;= P &lt; Q &lt; N.</p>
+<p>A slice (P, Q) of array A is called arithmetic if the sequence:<br>A[P], A[p + 1], …, A[Q - 1], A[Q] is arithmetic. In particular, this means that P + 1 &lt; Q.</p>
+<p>The function should return the number of arithmetic slices in the array A.</p>
+<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/arithmetic-slices/" title="Arithmetic Slices" target="_blank" rel="noopener">413. Arithmetic Slices</a></p>
 <p><strong>Quick Sum-up:</strong></p>
 <ul>
-<li>Input: a 2D array</li>
-<li>Output: a number indicating the number of 1 in the largest square</li>
+<li>Input: an array</li>
+<li>Output: a number indicating valid arithmetic slices</li>
 </ul>
 <hr>
-<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>For each cell in the matrix, if its value is 1, try expanding a square from top left to down right until a 0 is encountered. A 2D array is used for recording the maximal length of the expanded square at each cell. The speed of expanding square can be increased by using the 2D array record, since the initial length used for expanding a square is the maximum of records of top cell and left cell minus 1. =&gt; Pass, 3ms</p>
+<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>We can observe that the result of an array with k elements depends on whether the difference of k^th and (k-1)^th element is the same as the difference of its previous k-1 elements.  If they are same, the number of previous result should be considered again in the join with k^th element, plus a newly generated (k-2, k-1, k) slice. Otherwise, we don’t have to consider previous results. That’s what variable “dp” does. =&gt; Pass, 44ms</p>
 <hr>
 <h3 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h3><table>
 <thead>
@@ -384,24 +387,20 @@
 <td align="left">0</td>
 </tr>
 <tr>
-<td align="left">board=[[]]</td>
+<td align="left">board=[1,2]</td>
 <td align="left">0</td>
 </tr>
 <tr>
-<td align="left">board=[[&quot;1&quot;]]</td>
+<td align="left">board=[1,2,3]</td>
 <td align="left">1</td>
 </tr>
 <tr>
-<td align="left">board=[<br>[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],<br>[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]<br>]</td>
-<td align="left">4</td>
-</tr>
-<tr>
-<td align="left">board=[<br>[&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],<br>[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],<br>[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;]<br>]</td>
-<td align="left">9</td>
+<td align="left">board=[1,2,3,4]</td>
+<td align="left">3</td>
 </tr>
 </tbody></table>
 <hr>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> height;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[][] record;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[][] mat;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">expandRegion</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> endX = x + size;</span><br><span class="line">        <span class="keyword">int</span> endY = y + size;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (endX &gt;= width || endY &gt;= height)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = y; j &lt;= endY; j++)</span><br><span class="line">                <span class="keyword">if</span> (mat[j][endX] == <span class="string">'0'</span>)</span><br><span class="line">                    <span class="keyword">return</span> size;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= endX; i++)</span><br><span class="line">                <span class="keyword">if</span> (mat[endY][i] == <span class="string">'0'</span>)</span><br><span class="line">                    <span class="keyword">return</span> size;</span><br><span class="line">                </span><br><span class="line">            size++;</span><br><span class="line">            endX++;</span><br><span class="line">            endY++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findSquare</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lastLen = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">0</span> &amp;&amp; y == <span class="number">0</span>) &#123;</span><br><span class="line">            lastLen = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">            lastLen = record[y-<span class="number">1</span>][x];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y == <span class="number">0</span>) &#123;</span><br><span class="line">            lastLen = record[y][x-<span class="number">1</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            lastLen = record[y-<span class="number">1</span>][x] &gt; record[y][x-<span class="number">1</span>] ? record[y-<span class="number">1</span>][x] : record[y][x-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        lastLen = lastLen &gt; <span class="number">1</span> ? lastLen - <span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">        record[y][x] = expandRegion(x, y, lastLen);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> record[y][x];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maximalSquare</span><span class="params">(<span class="keyword">char</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        height = matrix.length;</span><br><span class="line">        <span class="keyword">if</span> (height == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        width = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">if</span> (width == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        mat = matrix;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// initialize record</span></span><br><span class="line">        record = <span class="keyword">new</span> <span class="keyword">int</span>[height][width];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; height; j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width; i++)</span><br><span class="line">                record[j][i] = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; height; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[j][i] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> squareLen = findSquare(i, j);</span><br><span class="line">                    <span class="keyword">if</span> (squareLen &gt; maxLen)</span><br><span class="line">                        maxLen = squareLen;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> maxLen * maxLen;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; A</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> numberOfArithmeticSlices = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (A.length &lt; <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> dp = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">2</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[i]-A[i<span class="number">-1</span>] == A[i<span class="number">-1</span>]-A[i<span class="number">-2</span>]) &#123;</span><br><span class="line">            dp++</span><br><span class="line">            sum += dp</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            dp = <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -431,19 +430,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/29/leetcode-79/" rel="next" title="<79> Word Search">
-                <i class="fa fa-chevron-left"></i> <79> Word Search
-              </79></a>
+              <a href="/2020/02/03/leetcode-221/" rel="next" title="<221> Maximal Square">
+                <i class="fa fa-chevron-left"></i> <221> Maximal Square
+              </221></a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/18/leetcode-413/" rel="prev" title="<413> Arithmetic Slices">
-                <413> Arithmetic Slices <i class="fa fa-chevron-right"></i>
-              </413></a>
             
           </div>
         </div>
@@ -767,9 +762,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2020/02/03/leetcode-221/';
-          this.page.identifier = '2020/02/03/leetcode-221/';
-          this.page.title = '<221> Maximal Square';
+          this.page.url = 'http://yoursite.com/2020/02/18/leetcode-413/';
+          this.page.identifier = '2020/02/18/leetcode-413/';
+          this.page.title = '<413> Arithmetic Slices';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://yensungchen.disqus.com/embed.js';
