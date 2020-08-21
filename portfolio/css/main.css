@@ -2200,6 +2200,16 @@ header .logo a {
 	color: rgba(255, 255, 255, 0.6);
 }
 
+/* mod */
+.service .icon {
+	display: inline-block;
+	margin-bottom: 2.1rem;
+}
+.service .icon i {
+	font-size: 5.4rem;
+	color: var(--theme-color);
+}
+
 /* pagination */
 .owl-pagination {
 	text-align: center;
