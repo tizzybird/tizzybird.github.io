@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="recursion,leetcode,dp,">
+  <meta name="keywords" content="COMPSCI-532,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="DescriptionQuestion: Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizont">
-<meta name="keywords" content="recursion,leetcode,dp">
+<meta name="description" content="Topics Fault Tolerance 容錯 Distributed File Systems: GFS Distributed Key-value Stores: Dynamo  1. Fault Tolerance 容錯錯誤分類 根據錯誤的層級以及影響，由小至大，有以下幾種分類：  Fault Error Failure  其中以 Fault 影響的層面最小，Failure 的影響層面最">
+<meta name="keywords" content="COMPSCI-532">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;79&gt; Word Search">
-<meta property="og:url" content="http://yoursite.com/2020/01/29/leetcode-79/index.html">
+<meta property="og:title" content="532-lec-05">
+<meta property="og:url" content="http://yoursite.com/2020/09/17/532-lec-05/index.html">
 <meta property="og:site_name" content="YSCHEN&#39;s space">
-<meta property="og:description" content="DescriptionQuestion: Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizont">
+<meta property="og:description" content="Topics Fault Tolerance 容錯 Distributed File Systems: GFS Distributed Key-value Stores: Dynamo  1. Fault Tolerance 容錯錯誤分類 根據錯誤的層級以及影響，由小至大，有以下幾種分類：  Fault Error Failure  其中以 Fault 影響的層面最小，Failure 的影響層面最">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-08-08T14:16:48.704Z">
+<meta property="og:updated_time" content="2020-09-17T18:29:23.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&lt;79&gt; Word Search">
-<meta name="twitter:description" content="DescriptionQuestion: Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizont">
+<meta name="twitter:title" content="532-lec-05">
+<meta name="twitter:description" content="Topics Fault Tolerance 容錯 Distributed File Systems: GFS Distributed Key-value Stores: Dynamo  1. Fault Tolerance 容錯錯誤分類 根據錯誤的層級以及影響，由小至大，有以下幾種分類：  Fault Error Failure  其中以 Fault 影響的層面最小，Failure 的影響層面最">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/29/leetcode-79/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/17/532-lec-05/">
 
 
 
 
 
-  <title><79> Word Search | YSCHEN's space</79></title>
+  <title>532-lec-05 | YSCHEN's space</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/29/leetcode-79/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/17/532-lec-05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yen-Sung Chen">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"><79> Word Search</79></h1>
+          <h1 class="post-title" itemprop="name headline">532-lec-05</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-29T16:56:27-05:00">
-                2020-01-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-17T14:17:58-04:00">
+                2020-09-17
               </time>
             
 
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcodes/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcodes</span>
+                  <a href="/categories/Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Note</span>
                   </a>
                 </span>
 
@@ -343,8 +343,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/29/leetcode-79/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/29/leetcode-79/" itemprop="commentCount"></span>
+                <a href="/2020/09/17/532-lec-05/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/17/532-lec-05/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -372,52 +372,54 @@
       
 
       
-        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p><strong>Question:</strong> Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
-<p><strong>Leetcode link:</strong> <a href="https://leetcode.com/problems/word-search/" title="Word Search" target="_blank" rel="noopener">79. Word Search</a></p>
-<p><strong>Quick Sum-up:</strong></p>
+        <h2 id="Topics"><a href="#Topics" class="headerlink" title="Topics"></a>Topics</h2><ol>
+<li>Fault Tolerance 容錯</li>
+<li>Distributed File Systems: GFS</li>
+<li>Distributed Key-value Stores: Dynamo</li>
+</ol>
+<h2 id="1-Fault-Tolerance-容錯"><a href="#1-Fault-Tolerance-容錯" class="headerlink" title="1. Fault Tolerance 容錯"></a>1. Fault Tolerance 容錯</h2><p><strong>錯誤分類</strong></p>
+<p>根據錯誤的層級以及影響，由小至大，有以下幾種分類：</p>
+<ol>
+<li>Fault</li>
+<li>Error</li>
+<li>Failure</li>
+</ol>
+<p>其中以 Fault 影響的層面最小，Failure 的影響層面最大，因此可以大概寫成下面的傳遞關係：<br>Fault -&gt; Error -&gt; … -&gt; Error -&gt; Failure</p>
+<p>這邊要注意的是一個 Error 不必然會造成 Failure；Failure 可以是因為一個或多個 Error 引起的。</p>
+<p>不過一般情形下，Fault/Failure 通常是相互代稱。</p>
+<p><strong>Failure 種類</strong></p>
+<ol>
+<li>Silent/Crash: 元件停止運作，這種情形相對容易 debug</li>
+<li>Non-silent: 元件產生錯誤的輸出結果，這種情形要避免讓錯誤的結果傳遞下去影響到其他的元件</li>
+<li>Malicious: adversarial behavior (non-silent)，拜占庭將軍問題，如何抓出叛徒</li>
+</ol>
+<p><strong>Fault 產生的原因</strong></p>
 <ul>
-<li>Input: a 2D array and a string</li>
-<li>Output: a boolean value indicating whether the string can be assembled by the characters in the array</li>
+<li>由 Hardware 造成<ul>
+<li>RAM: bit flip 問題 -&gt; 用 Parity bit 或 ECC 解決</li>
+<li>Disk/SSD: 讀寫資料毀損 -&gt; checksum 或 RAID</li>
+<li>CPU</li>
 </ul>
-<hr>
-<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>For each cell in the array, if the character is the same as the first character of the string, check whether its neighbors contain the following character. Use a 2D array to record whether a cell has been visited. The recursive loop stops when the end of string is reached. =&gt; Pass, 76ms</p>
-<hr>
-<h3 id="Test-cases"><a href="#Test-cases" class="headerlink" title="Test cases"></a>Test cases</h3><table>
-<thead>
-<tr>
-<th align="left">Input1</th>
-<th align="left">Input2</th>
-<th align="left">Expected Output</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">board=[<br>[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],<br>[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],<br>[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]<br>]</td>
-<td align="left">word=&quot;ABCCED&quot;<br>word=&quot;SEE&quot;<br>word=&quot;ABCB&quot;</td>
-<td align="left">true<br>true<br>false</td>
-</tr>
-<tr>
-<td align="left">board=[]</td>
-<td align="left">word=&quot;&quot;</td>
-<td align="left">false</td>
-</tr>
-<tr>
-<td align="left">board=[[&quot;&quot;]]</td>
-<td align="left">word=&quot;&quot;</td>
-<td align="left">false</td>
-</tr>
-<tr>
-<td align="left">board=[[]]</td>
-<td align="left">word=&quot;ABC&quot;</td>
-<td align="left">false</td>
-</tr>
-<tr>
-<td align="left">board=[[&quot;A&quot;]]</td>
-<td align="left">word=&quot;ABC&quot;</td>
-<td align="left">fasle</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;character[][]&#125; board</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; word</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> exist = <span class="function"><span class="keyword">function</span>(<span class="params">board, word</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> height = board.length</span><br><span class="line">    <span class="keyword">if</span> (height == <span class="number">0</span> || word.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> width = board[<span class="number">0</span>].length</span><br><span class="line">    <span class="keyword">let</span> record = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; height; j++) &#123;</span><br><span class="line">        <span class="keyword">let</span> row = []</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; width; i++)</span><br><span class="line">            row.push(<span class="literal">false</span>)</span><br><span class="line">        </span><br><span class="line">        record.push(row)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> search = <span class="function"><span class="keyword">function</span>(<span class="params">x, y, index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= width || y &lt; <span class="number">0</span> || y &gt;= height ||</span><br><span class="line">            record[y][x] || board[y][x] != word[index])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (index == word.length - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        record[y][x] = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (search(x + <span class="number">1</span>, y, index + <span class="number">1</span>) ||</span><br><span class="line">           search(x - <span class="number">1</span>, y , index + <span class="number">1</span>) ||</span><br><span class="line">           search(x, y + <span class="number">1</span>, index + <span class="number">1</span>) ||</span><br><span class="line">           search(x, y - <span class="number">1</span>, index + <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        record[y][x] = <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; height; j++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; width; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (board[j][i] == word[<span class="number">0</span>] &amp;&amp; search(i, j, <span class="number">0</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>由 Software 造成<ul>
+<li>Deterministic bugs (Bohrbugs): 給特定的條件就會產生</li>
+<li>Non-deterministic bugs (Heisenbugs): 給特定的條件也不一定會產生，難以複製</li>
+<li>Configuration faults</li>
+</ul>
+</li>
+</ul>
+<p><strong>容錯機制</strong></p>
+<p>想像若一台沒有 fault tolerance 的 server 每個月都會故障一次，則一個有 10 台相同 server 的機房，每 3 天就會有一台機器故障；若有 100 台，則每 7 小時就會有一次故障；有 1000 台，則每 50 分鐘就會故障！<br>因此我們需要有容錯的機制來處理各種大大小小的 fault 跟 error，避免他們變成 failure 造成服務終止。<br>Fault tolerance 依賴 Fault assumption，我覺得有點像是情境分析，就是把所有各種可能會造成錯誤的情況都列出來，然後再設計相對應的方法處理。Fault assumption 有所謂的覆蓋率，也就是 assumption 是否能 cover 到所有可能發生錯誤的情形。這個覆蓋率不可能為 100%，畢竟錯誤任何地方都可能會發生。</p>
+<p><strong>可靠性評估</strong></p>
+<p>我們可以用以下方法來評估一個系統的可靠度：</p>
+<ul>
+<li>Reliability: 系統上線的時間</li>
+<li>Maintainability: 系統離線的時間</li>
+<li>Availability: 上線時間 / 離線時間，也就是 Reliability / Maintainability</li>
+</ul>
+<p><strong>如果不幸發生 Failure 要怎麼避免影響到整台 Server?</strong></p>
+<p>如果系統不幸發生 Failure，但我們又不希望服務因此終止，要如何讓服務能在此情況繼續運作?<br>Ans: 使用分散式系統，將提供相同功能的 program 複製到多個 server 執行，如此就算其中有幾台發生 Failure，服務也不會因此終止。此外還可以提升服務的 Throughput。不過需要注意 concurrency 的問題。</p>
+<h2 id="2-Distributed-File-Systems-GFS"><a href="#2-Distributed-File-Systems-GFS" class="headerlink" title="2. Distributed File Systems: GFS"></a>2. Distributed File Systems: GFS</h2><h2 id="3-Distributed-Key-value-Stores-Dynamo"><a href="#3-Distributed-Key-value-Stores-Dynamo" class="headerlink" title="3. Distributed Key-value Stores: Dynamo"></a>3. Distributed Key-value Stores: Dynamo</h2>
       
     </div>
     
@@ -434,11 +436,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/recursion/" rel="tag"># recursion</a>
-          
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-          
-            <a href="/tags/dp/" rel="tag"># dp</a>
+            <a href="/tags/COMPSCI-532/" rel="tag"># COMPSCI-532</a>
           
         </div>
       
@@ -451,9 +449,9 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/26/leetcode-139/" rel="next" title="<139> Word Break">
-                <i class="fa fa-chevron-left"></i> <139> Word Break
-              </139></a>
+              <a href="/2020/05/23/leetcode-124/" rel="next" title="leetcode-124">
+                <i class="fa fa-chevron-left"></i> leetcode-124
+              </a>
             
           </div>
 
@@ -461,9 +459,9 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/03/leetcode-221/" rel="prev" title="<221> Maximal Square">
-                <221> Maximal Square <i class="fa fa-chevron-right"></i>
-              </221></a>
+              <a href="/2020/09/17/532-lec-07/" rel="prev" title="532-lec-07">
+                532-lec-07 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -621,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Idea"><span class="nav-number">2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-cases"><span class="nav-number">3.</span> <span class="nav-text">Test cases</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">4.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics"><span class="nav-number">1.</span> <span class="nav-text">Topics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Fault-Tolerance-容錯"><span class="nav-number">2.</span> <span class="nav-text">1. Fault Tolerance 容錯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Distributed-File-Systems-GFS"><span class="nav-number">3.</span> <span class="nav-text">2. Distributed File Systems: GFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Distributed-Key-value-Stores-Dynamo"><span class="nav-number">4.</span> <span class="nav-text">3. Distributed Key-value Stores: Dynamo</span></a></li></ol></div>
             
 
           </div>
@@ -793,9 +791,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2020/01/29/leetcode-79/';
-          this.page.identifier = '2020/01/29/leetcode-79/';
-          this.page.title = '<79> Word Search';
+          this.page.url = 'http://yoursite.com/2020/09/17/532-lec-05/';
+          this.page.identifier = '2020/09/17/532-lec-05/';
+          this.page.title = '532-lec-05';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://yensungchen.disqus.com/embed.js';

@@ -269,6 +269,373 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/17/532-lec-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yen-Sung Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YSCHEN's space">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/17/532-lec-07/" itemprop="url">532-lec-07</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-17T14:31:11-04:00">
+                2020-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/17/532-lec-07/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/17/532-lec-07/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Topics"><a href="#Topics" class="headerlink" title="Topics"></a>Topics</h2><ol>
+<li>Batch Data Processing - MapReduce</li>
+</ol>
+<h2 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h2><p>MapReduce 是一套由 Google 工程師開發的 library。他們發現大部分的資料運算大概都由兩個部份組成：</p>
+<ol>
+<li>Map: 將輸入資料對應到鍵值對 (key-value pair)</li>
+<li>Reduce: 將輸入資料轉換成最終輸出<br>以下先介紹整個架構，在介紹 Mapper 和 Reducer 的功能與特性。</li>
+</ol>
+<p><strong>架構</strong><br>MapReduce 的架構可以分為三個部份：</p>
+<ol>
+<li>User Program: 使用者自訂的程式，負責將 input 資料切成 16 ~ 64MB 大小的片段，作為 mapper 的輸入。此外也需定義 mapper 跟 reducer 所要執行的 function (User Defined Function, UDF)。之後把執行程式複製多份，分別執行 Master 與 Workers。</li>
+<li>Master: 負責監控 Worker 的狀態並指派工作給閒置的 Worker，再從 Worker 取得執行結果。</li>
+<li>Workers (Slaves): 負責執行 Map / Reduce 的運算，根據分配到的工作可以是 Mapper 或 Reducer:<ul>
+<li>Mapper: 將輸入資料轉成鍵值對暫存到記憶體，之後再寫入到 local disk。完成工作後會通知 Master 資料所在的位置，Master 會再把這些位置告訴 Reducer 用 RPC 的方式讀取作為其輸入。</li>
+<li>Reducer: 從 Master 獲得中間鍵值對 (intermediate key-value pairs) 所在的位置後，再用 RPC 的方式讀取。</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/17/532-lec-05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yen-Sung Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YSCHEN's space">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/17/532-lec-05/" itemprop="url">532-lec-05</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-17T14:17:58-04:00">
+                2020-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/17/532-lec-05/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/17/532-lec-05/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Topics"><a href="#Topics" class="headerlink" title="Topics"></a>Topics</h2><ol>
+<li>Fault Tolerance 容錯</li>
+<li>Distributed File Systems: GFS</li>
+<li>Distributed Key-value Stores: Dynamo</li>
+</ol>
+<h2 id="1-Fault-Tolerance-容錯"><a href="#1-Fault-Tolerance-容錯" class="headerlink" title="1. Fault Tolerance 容錯"></a>1. Fault Tolerance 容錯</h2><p><strong>錯誤分類</strong></p>
+<p>根據錯誤的層級以及影響，由小至大，有以下幾種分類：</p>
+<ol>
+<li>Fault</li>
+<li>Error</li>
+<li>Failure</li>
+</ol>
+<p>其中以 Fault 影響的層面最小，Failure 的影響層面最大，因此可以大概寫成下面的傳遞關係：<br>Fault -&gt; Error -&gt; … -&gt; Error -&gt; Failure</p>
+<p>這邊要注意的是一個 Error 不必然會造成 Failure；Failure 可以是因為一個或多個 Error 引起的。</p>
+<p>不過一般情形下，Fault/Failure 通常是相互代稱。</p>
+<p><strong>Failure 種類</strong></p>
+<ol>
+<li>Silent/Crash: 元件停止運作，這種情形相對容易 debug</li>
+<li>Non-silent: 元件產生錯誤的輸出結果，這種情形要避免讓錯誤的結果傳遞下去影響到其他的元件</li>
+<li>Malicious: adversarial behavior (non-silent)，拜占庭將軍問題，如何抓出叛徒</li>
+</ol>
+<p><strong>Fault 產生的原因</strong></p>
+<ul>
+<li>由 Hardware 造成<ul>
+<li>RAM: bit flip 問題 -&gt; 用 Parity bit 或 ECC 解決</li>
+<li>Disk/SSD: 讀寫資料毀損 -&gt; checksum 或 RAID</li>
+<li>CPU</li>
+</ul>
+</li>
+<li>由 Software 造成<ul>
+<li>Deterministic bugs (Bohrbugs): 給特定的條件就會產生</li>
+<li>Non-deterministic bugs (Heisenbugs): 給特定的條件也不一定會產生，難以複製</li>
+<li>Configuration faults</li>
+</ul>
+</li>
+</ul>
+<p><strong>容錯機制</strong></p>
+<p>想像若一台沒有 fault tolerance 的 server 每個月都會故障一次，則一個有 10 台相同 server 的機房，每 3 天就會有一台機器故障；若有 100 台，則每 7 小時就會有一次故障；有 1000 台，則每 50 分鐘就會故障！<br>因此我們需要有容錯的機制來處理各種大大小小的 fault 跟 error，避免他們變成 failure 造成服務終止。<br>Fault tolerance 依賴 Fault assumption，我覺得有點像是情境分析，就是把所有各種可能會造成錯誤的情況都列出來，然後再設計相對應的方法處理。Fault assumption 有所謂的覆蓋率，也就是 assumption 是否能 cover 到所有可能發生錯誤的情形。這個覆蓋率不可能為 100%，畢竟錯誤任何地方都可能會發生。</p>
+<p><strong>可靠性評估</strong></p>
+<p>我們可以用以下方法來評估一個系統的可靠度：</p>
+<ul>
+<li>Reliability: 系統上線的時間</li>
+<li>Maintainability: 系統離線的時間</li>
+<li>Availability: 上線時間 / 離線時間，也就是 Reliability / Maintainability</li>
+</ul>
+<p><strong>如果不幸發生 Failure 要怎麼避免影響到整台 Server?</strong></p>
+<p>如果系統不幸發生 Failure，但我們又不希望服務因此終止，要如何讓服務能在此情況繼續運作?<br>Ans: 使用分散式系統，將提供相同功能的 program 複製到多個 server 執行，如此就算其中有幾台發生 Failure，服務也不會因此終止。此外還可以提升服務的 Throughput。不過需要注意 concurrency 的問題。</p>
+<h2 id="2-Distributed-File-Systems-GFS"><a href="#2-Distributed-File-Systems-GFS" class="headerlink" title="2. Distributed File Systems: GFS"></a>2. Distributed File Systems: GFS</h2><h2 id="3-Distributed-Key-value-Stores-Dynamo"><a href="#3-Distributed-Key-value-Stores-Dynamo" class="headerlink" title="3. Distributed Key-value Stores: Dynamo"></a>3. Distributed Key-value Stores: Dynamo</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/23/leetcode-124/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1797,7 +2164,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1808,7 +2175,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1819,7 +2186,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
