@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="工作以來一直需要對新開發的功能或 React 元件在上版前做測試，以保證所有組件與函式能如預期的運作。雖然感覺還沒完全摸透這方面的知識，但仍想紀錄一下自己到目前為止的理解以供日後參考。   Unit Test 單元測試單元測試就是在程式專案 (project) 中對小單位的程式碼進行測試。聽起來好像很抽象，因為所謂的小單位程式碼跟測試項目是需要自行定義的。以現任公司的作法為例，測試的標的通常是函式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端測試 (1) - Unit test, Mocha &amp; Chai">
+<meta property="og:url" content="http://yoursite.com/2021/09/12/unit-test-js/index.html">
+<meta property="og:site_name" content="tizzybird&#39;s space">
+<meta property="og:description" content="工作以來一直需要對新開發的功能或 React 元件在上版前做測試，以保證所有組件與函式能如預期的運作。雖然感覺還沒完全摸透這方面的知識，但仍想紀錄一下自己到目前為止的理解以供日後參考。   Unit Test 單元測試單元測試就是在程式專案 (project) 中對小單位的程式碼進行測試。聽起來好像很抽象，因為所謂的小單位程式碼跟測試項目是需要自行定義的。以現任公司的作法為例，測試的標的通常是函式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2021/09/12/unit-test-js/mocha-chai.png">
+<meta property="og:image" content="http://yoursite.com/2021/09/12/unit-test-js/unit-test-1.png">
+<meta property="og:image" content="http://yoursite.com/2021/09/12/unit-test-js/unit-test-2.png">
+<meta property="article:published_time" content="2021-09-12T13:39:50.000Z">
+<meta property="article:modified_time" content="2021-09-15T06:23:53.398Z">
+<meta property="article:author" content="tizzybird">
+<meta property="article:tag" content="Unit test">
+<meta property="article:tag" content="Mocha">
+<meta property="article:tag" content="Chai">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/09/12/unit-test-js/mocha-chai.png">
+
+
+<link rel="canonical" href="http://yoursite.com/2021/09/12/unit-test-js/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://yoursite.com/2021/09/12/unit-test-js/","path":"2021/09/12/unit-test-js/","title":"前端測試 (1) - Unit test, Mocha & Chai"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端測試 (1) - Unit test, Mocha & Chai | tizzybird's space</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157438497-2"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-157438497-2","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">tizzybird's space</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unit-Test-%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6"><span class="nav-text">Unit Test 單元測試</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E8%99%95"><span class="nav-text">好處</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E5%AF%AB"><span class="nav-text">什麼時候寫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-text">工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mocha-%E6%B8%AC%E8%A9%A6%E6%A1%86%E6%9E%B6"><span class="nav-text">Mocha 測試框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%AA%9E%E6%B3%95"><span class="nav-text">常用語法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chai-%E6%96%B7%E8%A8%80%E5%BA%AB"><span class="nav-text">Chai 斷言庫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-assert"><span class="nav-text">1. assert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-expect"><span class="nav-text">2. expect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-should"><span class="nav-text">3. should</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-text">小結</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">tizzybird</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/tizzybird" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tizzybird" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:george129.chen@gmail.com" title="E-Mail → mailto:george129.chen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/unit-test-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tizzybird">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tizzybird's space">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端測試 (1) - Unit test, Mocha & Chai
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-12 09:39:50" itemprop="dateCreated datePublished" datetime="2021-09-12T09:39:50-04:00">2021-09-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-15 02:23:53" itemprop="dateModified" datetime="2021-09-15T02:23:53-04:00">2021-09-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%AC%E8%A9%A6/" itemprop="url" rel="index"><span itemprop="name">測試</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>工作以來一直需要對新開發的功能或 React 元件在上版前做測試，以保證所有組件與函式能如預期的運作。雖然感覺還沒完全摸透這方面的知識，但仍想紀錄一下自己到目前為止的理解以供日後參考。</p>
+<div style="width:50%; margin:auto"><img data-src="/2021/09/12/unit-test-js/mocha-chai.png" class="" title="&lt;a href&#x3D;https:&#x2F;&#x2F;nonodename.com&#x2F;post&#x2F;unittestingmocha&#x2F;mocha-chai_hub0fa33dcb7b6ea0e197b450c9b6edfe2_55976_800x0_resize_lanczos_2.png&gt;Picture source&lt;&#x2F;a&gt;"></div>
+
+<h2 id="Unit-Test-單元測試"><a href="#Unit-Test-單元測試" class="headerlink" title="Unit Test 單元測試"></a>Unit Test 單元測試</h2><p>單元測試就是在程式專案 (project) 中對小單位的程式碼進行測試。聽起來好像很抽象，因為所謂的<strong>小單位程式碼</strong>跟<strong>測試項目</strong>是需要自行定義的。以現任公司的作法為例，測試的標的通常是函式、React 元件或整個頁面；而測試進行的項目，除了常見的輸入輸出正確性測試外，也可以測元件有沒有被正確渲染、特定事件有沒有被觸發、特定的變數值是否合乎預期等等。</p>
+<span id="more"></span>
+
+<h3 id="好處"><a href="#好處" class="headerlink" title="好處"></a>好處</h3><p>寫單元測試是費時的，除了要想元件在哪些特定情境可能會有問題，也需要花時間做能製造那些情況的測試資料。雖然麻煩，但卻能帶來以下好處：</p>
+<ul>
+<li>能自動化進行測試且產生量化的測試數據，並且能在短時間內完成</li>
+<li>避免在更動元件時改壞原本能正常運行的功能</li>
+<li>能逐步累積測試案例，盡可能確保元件能在所有情境下正常運作</li>
+</ul>
+<h3 id="什麼時候寫"><a href="#什麼時候寫" class="headerlink" title="什麼時候寫"></a>什麼時候寫</h3><p>其實也是取決於工程團隊的需求。以現任公司為例，我們通常在開發新的 React 元件或新增 function 到函式庫的時候，就會需要寫相對應的單元測式，例如：測試元件在 mount 的時候有沒有依照 props 或 state 的值正確呈現，或測試切換按鈕被點擊的時候，存在 state 裡相對應的數值有沒有改變等等。</p>
+<div style="width:90%; margin:auto"><img data-src="/2021/09/12/unit-test-js/unit-test-1.png" class="" title="Unit test 測試案例與結果"></div>
+
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>目前公司是用 Mocha, Chai 和 Sinon，安裝方式請參考官方網站，以下將逐一介紹他們的功能。</p>
+<p>&nbsp;</p>
+<h2 id="Mocha-測試框架"><a href="#Mocha-測試框架" class="headerlink" title="Mocha 測試框架"></a>Mocha 測試框架</h2><p>用來管理測試案例及定義如何進行測試，在每次啟動單元測試的時候都會被執行。</p>
+<h3 id="常用語法"><a href="#常用語法" class="headerlink" title="常用語法"></a>常用語法</h3><ul>
+<li><code>describe()</code>: 描述當前的測試標的，例如某某 function 或某某元件</li>
+<li><code>it()</code>: 包在 <code>describe()</code> 底下，描述要進行的測試案例，通常是元件的預期動作，例如：”should disappear when close button is clicked”</li>
+<li><code>before()</code>: 在跑第一個測試案例前進行的動作</li>
+<li><code>after()</code>: 在最後一個測試案例跑完後要執行的動作</li>
+<li><code>beforeEach()</code>: 在跑每個測試案例前都要進行的動作</li>
+<li><code>afterEach()</code>: 在完成每個測試案例後都要執行的動作</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// name of a component/function to be tested</span></span><br><span class="line">describe(<span class="string">&#x27;&lt;MyReactComponent/&gt;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// runs once before the first test in this block</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// runs once after the last test in this block</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// runs before each test in this block</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  afterEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// runs after each test in this block</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// test cases</span></span><br><span class="line">  it(<span class="string">&#x27;should have all valid values in required columns when clicking \</span></span><br><span class="line"><span class="string">    the submit button&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// check all values in columns</span></span><br><span class="line">    <span class="comment">// 如果元件行為與預期相符，無需回傳任何值</span></span><br><span class="line">    <span class="comment">// 否則 throw error 給 Mocha 知道</span></span><br><span class="line">    <span class="comment">// (注意：return false 對 Mocha 而言測試還是通過的！)</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+<h2 id="Chai-斷言庫"><a href="#Chai-斷言庫" class="headerlink" title="Chai 斷言庫"></a>Chai 斷言庫</h2><p>在先前的每個 <code>it()</code> 測試案例中，如果元件的行為不合預期，我們以 throw error 的方式告訴 Mocha 該元件沒有通過該案例。這樣雖然直觀好寫，但如果一個案例中有好幾個要檢查的地方就會開始變得複雜（要寫一堆 if-else cases 還有 throw errors），此外要產生的錯誤訊息也會變得難以整理與判斷。</p>
+<p>斷言庫就是用來使這些事變容易的工具，除了驗證執行結果是否符合預期，其本身的寫法也能在這些錯誤訊息產生時自動予以分門別類，進而方便管理與判讀。這邊介紹的 Chai 就是其中一套斷言庫，可搭配 Mocha 使用。其他的還有像是：<code>expect.js</code>, <code>should.js</code>, <code>unexpected</code> 等等。</p>
+<div style="width:90%; margin:auto"><img data-src="/2021/09/12/unit-test-js/unit-test-2.png" class="" title="Chai expect 的&lt;a href&#x3D;https:&#x2F;&#x2F;github.com&#x2F;chaijs&#x2F;chai&#x2F;blob&#x2F;main&#x2F;lib&#x2F;chai&#x2F;interface&#x2F;expect.js&gt;原始碼&lt;&#x2F;a&gt;其實也是 throw error"></div>
+&nbsp;
+
+<p>Chai 斷言庫提供三種斷言風格，分別是 <code>assert</code>, <code>expect</code>, <code>should</code>。個人覺得他們之間大同小異，選 1~2 種用即可。</p>
+<h3 id="1-assert"><a href="#1-assert" class="headerlink" title="1. assert"></a>1. <code>assert</code></h3><ul>
+<li>通常寫法為：<code>assert(expression, error_message)</code></li>
+<li>也可寫成：<br><code>assert.&lt;compare_function&gt;(compare_target, correct_value, [error_message])</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">assert(<span class="string">&#x27;foo&#x27;</span> !== <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;foo is not bar&#x27;</span>);</span><br><span class="line">assert.typeOf(foo, <span class="string">&#x27;string&#x27;</span>);</span><br><span class="line">assert.typeOf(foo, <span class="string">&#x27;string&#x27;</span>, <span class="string">&#x27;foo is a string&#x27;</span>); <span class="comment">// with optional message</span></span><br><span class="line">assert.equal(foo, <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;foo equal `bar`&#x27;</span>);</span><br><span class="line">assert.lengthOf(beverages.tea, <span class="number">3</span>, <span class="string">&#x27;beverages has 3 types of tea&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-expect"><a href="#2-expect" class="headerlink" title="2. expect"></a>2. <code>expect</code></h3><ul>
+<li><code>expect()</code>是一個函式，以測試標的為參數</li>
+<li>寫法貼近自然語言，可以串連多個斷言</li>
+<li>串連的斷言在預期結果不符時，可以自動生成錯誤訊息</li>
+<li>也可以另外自訂錯誤訊息</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// expect(object)....</span></span><br><span class="line">expect(foo).to.be.a(<span class="string">&#x27;string&#x27;</span>);</span><br><span class="line">expect(foo).to.have.lengthOf(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// AssertionError: expected 43 to equal 42.</span></span><br><span class="line">expect(answer).to.equal(<span class="number">42</span>);</span><br><span class="line"><span class="comment">// AssertionError: topic [answer]: expected 43 to equal 42.</span></span><br><span class="line">expect(answer, <span class="string">&#x27;Topic [answer]&#x27;</span>).to.equal(<span class="number">42</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-should"><a href="#3-should" class="headerlink" title="3. should"></a>3. <code>should</code></h3><ul>
+<li>與 <code>expect</code> 類似，可以串連多個斷言並自動生成錯誤訊息</li>
+<li>不一樣的是 <code>should</code> 是透過 Object.prototype 擴展而來，自動變成每個測試物件裡的屬性</li>
+<li>無法自訂錯誤訊息，且 IE 瀏覽器不支援這種寫法</li>
+<li>特定情況下需改變寫法，例如檢查物件是否存在</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// object.should....</span></span><br><span class="line">foo.should.be.a(<span class="string">&#x27;string&#x27;</span>);</span><br><span class="line">foo.should.equal(<span class="string">&#x27;bar&#x27;</span>);</span><br><span class="line">foo.should.have.lengthOf(<span class="number">3</span>);</span><br><span class="line">beverages.should.have.property(<span class="string">&#x27;tea&#x27;</span>).with.lengthOf(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Since objects could be null or undefined, the writing style</span></span><br><span class="line"><span class="comment">// should be modified as below to check for existence:</span></span><br><span class="line">should.not.exist(err);</span><br><span class="line">should.exist(doc);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;</p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>單元測試的測試標的、項目案例與斷言庫的選擇，很大程度取決於團隊的專案需求，並沒有一定的答案。這篇就先記錄到這邊，下一篇來聊聊 Sinon。</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://mochajs.org/">Mocha official website</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chaijs.com/">Chai official website</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chaijs.com/guide/styles/">assert, expect, should 的比較</a></li>
+<li><a target="_blank" rel="noopener" href="https://cythilya.github.io/2017/09/17/unit-test-with-mocha-chai-and-sinon/">Summer。桑莫。夏天</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Unit-test/" rel="tag"># Unit test</a>
+              <a href="/tags/Mocha/" rel="tag"># Mocha</a>
+              <a href="/tags/Chai/" rel="tag"># Chai</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/05/note-driver-license/" rel="prev" title="西雅圖換駕照">
+                  <i class="fa fa-chevron-left"></i> 西雅圖換駕照
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">== 網站內容歡迎轉載，並請註明 tizzybird 及原文連結 ==</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"yensungchen","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
